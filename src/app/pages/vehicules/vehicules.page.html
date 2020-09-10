@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Vehicules</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="credentialsForm">
+    <ion-item>
+      <ion-label position="floating">Please add new vehicule to track</ion-label>
+      <ion-input type="text" formControlName="VIN"></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="addVehicules(FormFile)">
+      <ion-icon name="car"></ion-icon>
+      <ion-label>Add Vehicule</ion-label>
+    </ion-button>
+
+    <ion-list>
+      <ion-item class='icon-left' *ngFor="let vehicule of vehicules; let i = index">
+        {{ vehicule }}
+        <ion-icon name="trash" color="primary" class='icon-left' (click)="deleteVehicule(i,vehicule)"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <ion-card *ngIf="vehicules.length === 0">
+      <ion-card-content>No Vehicules found!</ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>

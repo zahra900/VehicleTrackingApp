@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Tracks
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form #FormFile="ngForm">
+        <ion-item class="ion-row" disabled="false">
+            <ion-label style="text-align: left ; color: rgb(45, 145, 240)">Select Start Date:</ion-label>
+        </ion-item>
+        <ion-item class="ion-row" disabled="false">
+            <ion-input type="date" [(ngModel)]="FormFile.date1" name="date1" required></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-row" disabled="false">
+            <ion-label style="text-align: left ; color: rgb(45, 145, 240)">Select End Date:</ion-label>
+        </ion-item>
+        <ion-item class="ion-row" disabled="false">
+            <ion-input type="date" [(ngModel)]="FormFile.date2" name="date2" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label style="text-align: left ; color: rgb(45, 145, 240)">Select CarID</ion-label>
+            <ion-select [(ngModel)]="FormFile.vins" name="vins" (ionChange)="getData(FormFile)" required>
+                <ion-select-option *ngFor="let vin of tableCar">{{vin}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+    </form>
+
+    <ion-item-group class="align-self-center ion-row" disabled="false">
+        <ion-label style="text-align: left ; color: rgb(45, 145, 240)">Select Warnings to display:</ion-label>
+        <img src="../../../assets/img/fuel.png" style="width : 10% ; height : 10%; padding-right: 5%"
+            (click)="showAndHideFuelLevelwarning()"><img />
+        <img src="../../../assets/img/oil.png" style="width : 10% ; height : 10%; padding-right: 5%"
+            (click)="showAndHideOilLevelWarning()"><img />
+        <img src="../../../assets/img/battery.png" style="width : 10% ; height : 10%; padding-right: 5%"
+            (click)="showAndHideKeyBatteryWarning()"><img />
+        <img src="../../../assets/img/engine-coolant.png" style="width : 10% ; height : 10%; padding-right: 5%"
+            (click)="showAndHideWaterTemperatureWarning()"><img />
+    </ion-item-group>
+
+   
+    <div class="map-container">
+        <div class="map-frame">
+            <div #map id="map"></div>
+        </div>
+    </div>
+   
+
+</ion-content>

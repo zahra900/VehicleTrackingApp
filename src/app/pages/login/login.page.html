@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title style="text-align: center">Vehicule Tracking App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+
+
+    <ion-item *ngIf="createAccount === true">
+      <ion-label position="floating">FirstName</ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="createAccount === true">
+      <ion-label position="floating">LastName</ion-label>
+      <ion-input type="text" formControlName="lastName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+
+    <ion-button expand="full" type="submit"  *ngIf="createAccount === false">Login</ion-button>
+    <div *ngIf="createAccount === false" class="ion-text-center">
+      <h5> If you don't have an account, please register first!</h5>
+    </div>
+    <ion-button expand="full" type="button" (click)="register()">{{createAccount === false ? 'Create account' : 'Register'}}
+    </ion-button>
+    <ion-button *ngIf="createAccount === true" expand="full" type="button" (click)="backToLogin()">Back to login page
+    </ion-button>
+
+  </form>
+</ion-content>
