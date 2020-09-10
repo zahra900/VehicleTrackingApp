@@ -4,7 +4,7 @@ Get the project and run: `ionic serve -ssl`
 
 Run `ionic serve`. It will initialize the server at port 8200.
 
-The project will be running at http://localhost:8101/webpack-dev-server/
+The project will be running
 First you should fill the credentials form then register or login if you are already registred.
 Then, there will be three tabs: 
 1. Logout tab : You can logout
